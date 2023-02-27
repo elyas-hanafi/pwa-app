@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Routes, Route } from 'react-router-dom';
+import Login from './Pages/Login';
+import OneTimeCode from './Pages/OneTimeCode';
+import Services from './Pages/Services';
+import Register from './Pages/Register';
+import Profile from './Pages/Profile';
+import Map from './Pages/Map';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/OneTimeCode" element={<OneTimeCode />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/map" element={<Map />} />
+      </Routes>
+    </>
   );
 }
 

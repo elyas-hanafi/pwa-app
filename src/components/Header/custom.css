@@ -1,0 +1,13 @@
+.swiper-pagination-bullet {
+  background-color: white !important;
+  border: 1px solid white !important;
+  opacity: 1 !important;
+  padding: 4.5px 4.5px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #6d47d3 !important;
+}
+.lastChild div:last-child {
+  margin-left: -40px !important;
+  margin-top: 20px;
+}
