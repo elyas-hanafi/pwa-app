@@ -60,7 +60,7 @@ export default function Login() {
 
   return (
     <LoginAndRegisterLayout>
-      {/* <Header />
+      <Header />
       <Button mt={`mt-[22px]`} img={user} active={true} active2={false} />
       <Form
         des={` برای ورود به حساب کاربری خود کد ملی و رمز عبور را وارد نمایید`}
@@ -83,15 +83,15 @@ export default function Login() {
           route=""
           handelFunction={handelValiditions}
         />
-      </Form> */}
-      <QrReader
+      </Form>
+      {/* <QrReader
         scanDelay={300}
         style={{ width: '100%' }}
         facingMode={'environment'}
         legacyMode={false}
         onScan={handelScan}
       />
-      <p>{data ? data : 'hello'}</p>
+      <p>{data ? data : 'hello'}</p> */}
     </LoginAndRegisterLayout>
   );
 }
