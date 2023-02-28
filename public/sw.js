@@ -1,6 +1,6 @@
 console.warn('heyy i am ok');
 const staticCacheName = 'site-static';
-const asset = ['/static/js/bundle.js', '`/', '/index.html'];
+const asset = ['/static/js/bundle.js', '/', '/index.html'];
 // install service worker
 this.addEventListener('install', (evt) => {
   //   console.log('service worker installed');
