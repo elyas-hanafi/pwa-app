@@ -1,25 +1,16 @@
 console.warn('heyy i am ok');
-// let cacheData = 'appV1';
-// this.addEventListener('install', (event) => {
-//   event.waitUntil(
-//     caches.open(cacheData).then((cache) => {
-//       cache.addAll([
-//         '/static/js/main.chunk.js',
-//         '/static/js/O.chunk.js',
-//         '/static/js/bundle.js',
-//         '/index.html',
-//         '/',
-//       ]);
-//     })
-//   );
-// });
 
-// this.addEventListener('fetch', (event) => {
-//   event.respondWith(
-//     caches.match(event.request).then((resp) => {
-//       if (resp) {
-//         return resp;
-//       }
-//     })
-//   );
-// });
+// install service worker
+this.addEventListener('install', (evt) => {
+  console.log('service worker installed');
+});
+
+// activate event
+this.addEventListener('activate', (evt) => {
+  console.log('service worker has been activated');
+});
+
+// fetch event
+this.addEventListener('fetch', (evt) => {
+  console.log('fechy fechy');
+});
