@@ -80,7 +80,7 @@ const LeafletMachine = () => {
   const map = useMap();
   React.useEffect(() => {
     L.Routing.control({
-      // waypoints: [L.latLng(57.74, 11.94), L.latLng(57.6792, 11.949)],
+      waypoints: [L.latLng, L.latLng],
       lineOptions: {
         styles: [
           {
