@@ -20,4 +20,10 @@ this.addEventListener('activate', (evt) => {
 // fetch event
 this.addEventListener('fetch', (evt) => {
   console.log('fechy fechy');
+
+  evt.respondWith(
+    caches.match(evt.request).then((cacheRes) => {
+      return cacheRes || fetch(evt.request);
+    })
+  );
 });
