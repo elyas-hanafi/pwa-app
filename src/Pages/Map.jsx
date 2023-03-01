@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
@@ -14,31 +14,44 @@ import { useMap } from 'react-leaflet';
 export default function Map() {
   const [croods, setCroods] = React.useState([]);
 
+  const position1 = [31.458, 51.0015];
+  const position2 = [31.008, 51.8415];
+  const position3 = [30.008, 45.8725];
   function LocationMarker() {
-    const [position, setPosition] = React.useState(null);
+    const [position, setPosition] = useState(null);
     const map = useMapEvents({
       click() {
         map.locate();
       },
       locationfound(e) {
         setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
+        // map.flyTo(e.latlng, map.getZoom());
       },
     });
-
     return position === null ? null : (
-      <Marker position={position} icon={defaulIcon}>
-        <Popup>You are here</Popup>
-      </Marker>
+      <>
+        <Marker position={position} icon={defaulIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+        <Marker position={[35.698, 51.4115]} icon={defaulIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+        <Marker position={position2} icon={defaulIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+        <Marker position={[25.1325, 51.2345]} icon={defaulIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+      </>
     );
   }
-
-  React.useEffect(() => {
+  useLayoutEffect(() => {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         setCroods([latitude, longitude]);
       }
     );
+    console.log('Hello thats not my fault');
   }, []);
 
   return (
@@ -47,7 +60,18 @@ export default function Map() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      {/* <LocationMarker /> */}
       {/* <LeafletGeocode /> */}
+      {/* <LeafletMachine /> */}
+      <Marker position={position1} icon={defaulIcon}>
+        <Popup>You are here</Popup>
+      </Marker>
+      <Marker position={position2} icon={defaulIcon}>
+        <Popup>You are here</Popup>
+      </Marker>
+      <Marker position={position3} icon={defaulIcon}>
+        <Popup>You are here</Popup>
+      </Marker>
       <LeafletMachine />
     </MapContainer>
   );
@@ -62,7 +86,7 @@ L.Marker.prototype.options.icon = defaulIcon;
 
 const LeafletGeocode = () => {
   const map = useMap();
-  React.useEffect(() => {
+  useEffect(() => {
     L.Control.geocoder({
       defaultMarkGeocode: false,
     })
@@ -78,21 +102,27 @@ const LeafletGeocode = () => {
 
 const LeafletMachine = () => {
   const map = useMap();
-  React.useEffect(() => {
-    L.Routing.control({
-      waypoints: [L.latLng, L.latLng],
-      lineOptions: {
-        styles: [
-          {
-            color: 'blue',
-            weight: 4,
-            opacity: 0.7,
-          },
+  useEffect(() => {
+    map.on('click', (e) => {
+      L.Routing.control({
+        waypoints: [
+          L.latLng(36.8065, 10.1815),
+          L.latLng(e.latlng.lat, e.latlng.lng),
         ],
-      },
-      routeWhileDragging: false,
-      geocoder: L.Control.Geocoder.nominatim(),
-    }).addTo(map);
+        lineOptions: {
+          styles: [
+            {
+              color: 'blue',
+              weight: 4,
+              opacity: 0.7,
+            },
+          ],
+        },
+        routeWhileDragging: false,
+        // geocoder: L.Control.Geocoder.nominatim(),
+      }).addTo(map);
+    });
   }, []);
+
   return null;
 };
