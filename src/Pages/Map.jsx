@@ -25,7 +25,7 @@ export default function Map() {
       },
       locationfound(e) {
         setPosition(e.latlng);
-        // map.flyTo(e.latlng, map.getZoom());
+        map.flyTo(e.latlng, map.getZoom());
       },
     });
     return position === null ? null : (
@@ -65,6 +65,7 @@ export default function Map() {
         <Popup>You are here</Popup>
       </Marker>
       <LeafletMachine />
+      {/* <LocationMarker /> */}
     </MapContainer>
   );
 }
@@ -126,7 +127,7 @@ const LeafletMachine = () => {
               ],
             },
             routeWhileDragging: false,
-            // geocoder: L.Control.Geocoder.nominatim(),
+            geocoder: L.Control.Geocoder.nominatim(),
           }).addTo(map);
         });
       }
