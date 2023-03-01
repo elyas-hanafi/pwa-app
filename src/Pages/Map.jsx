@@ -45,14 +45,6 @@ export default function Map() {
       </>
     );
   }
-  useLayoutEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      ({ coords: { latitude, longitude } }) => {
-        setCroods([latitude, longitude]);
-      }
-    );
-    console.log('Hello thats not my fault');
-  }, []);
 
   return (
     <MapContainer center={[35.698, 51.4115]} zoom={13} scrollWheelZoom={true}>
@@ -99,29 +91,46 @@ const LeafletGeocode = () => {
   }, []);
   return null;
 };
+const array = [36.8065, 10.1815];
 
 const LeafletMachine = () => {
+  // const [croods, setCroods] = useState([]);
+  // useLayoutEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(
+  //     ({ coords: { latitude, longitude } }) => {
+  //       setCroods([...croods, latitude, longitude]);
+  //     }
+  //   );
+  //   console.log('Hello thats not my fault');
+  // }, []);
   const map = useMap();
+  // console.log(croods[0], croods[1]);
   useEffect(() => {
-    map.on('click', (e) => {
-      L.Routing.control({
-        waypoints: [
-          L.latLng(36.8065, 10.1815),
-          L.latLng(e.latlng.lat, e.latlng.lng),
-        ],
-        lineOptions: {
-          styles: [
-            {
-              color: 'blue',
-              weight: 4,
-              opacity: 0.7,
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        let croods = [latitude, longitude];
+        console.log(croods);
+        map.on('click', (e) => {
+          L.Routing.control({
+            waypoints: [
+              L.latLng(croods[0], croods[1]),
+              L.latLng(e.latlng.lat, e.latlng.lng),
+            ],
+            lineOptions: {
+              styles: [
+                {
+                  color: 'blue',
+                  weight: 4,
+                  opacity: 0.7,
+                },
+              ],
             },
-          ],
-        },
-        routeWhileDragging: false,
-        // geocoder: L.Control.Geocoder.nominatim(),
-      }).addTo(map);
-    });
+            routeWhileDragging: false,
+            // geocoder: L.Control.Geocoder.nominatim(),
+          }).addTo(map);
+        });
+      }
+    );
   }, []);
 
   return null;
