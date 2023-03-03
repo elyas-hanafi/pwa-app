@@ -27,7 +27,7 @@ export default function Modal({ text, handelClick, setActive }) {
     if (sendId) {
       axios
         .get(
-          `http://emdad-yar.ir/webservice/webservice/national?national_code=${sendId}`
+          `https://emdad-yar.ir/webservice/webservice/national?national_code=${sendId}`
         )
         .then((ress) => {
           if (ress.data[0] == 'اطلاعاتی برای کدملی وارد شده یافت نشد') {
