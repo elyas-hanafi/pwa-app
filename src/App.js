@@ -5,7 +5,11 @@ import Services from './Pages/Services';
 import Register from './Pages/Register';
 import Profile from './Pages/Profile';
 import Map from './Pages/Map';
+import { useContext } from 'react';
+import { Store } from './utils/Store';
 function App() {
+  const { dispatch, state } = useContext(Store);
+
   return (
     <>
       <Routes>

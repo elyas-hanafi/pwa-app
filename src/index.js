@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { StoreProvider } from './utils/Store';
+import { Store, StoreProvider } from './utils/Store';
 import swDev from './swDev';
 import { AuthProvider } from './utils/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <StoreProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <App />
       </StoreProvider>
     </BrowserRouter>
   </React.StrictMode>

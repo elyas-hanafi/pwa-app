@@ -5,9 +5,14 @@
   padding: 4.5px 4.5px;
 }
 .swiper-pagination-bullet-active {
-  background-color: #6d47d3 !important;
+  background-color: #ff0000 !important;
 }
 .lastChild div:last-child {
   margin-left: -40px !important;
   margin-top: 20px;
+}
+.fristChild div:first-child {
+  /* margin-left: -40px !important; */
+  margin-top: -70px !important;
+  width: 250px;
 }

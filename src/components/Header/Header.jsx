@@ -1,8 +1,9 @@
 import React from 'react';
 import './custom.css';
 import headerImg from '../../img/OrangeHeader/Rectangle 24.svg';
-import headerImgTwo from '../../img/BlueHeader/Rectangle 24.svg';
-import headerItem from '../../img/OrangeHeader/Group.png';
+// import headerImgTwo from '../../img/BlueHeader/Rectangle 24.svg';
+import headerRed from '../../img/redRec.png';
+import headerItem from '../../img/familyHelal.png';
 import headerItemTwo from '../../img/BlueHeader/Group.png';
 import headerItemThree from '../../img/BlueHeader/Group-1.png';
 import SwiperSlider from '../Swiper/Swiper';
@@ -11,13 +12,13 @@ import { SwiperSlide } from 'swiper/react';
 const headerItemsArrey = [
   {
     id: 1,
-    HeaderImg: headerImg,
+    HeaderImg: headerRed,
     HeaderItem: [headerItem],
   },
   {
     id: 2,
-    HeaderImg: headerImgTwo,
-    HeaderItem: [headerItemTwo, headerItemThree],
+    HeaderImg: headerRed,
+    HeaderItem: [headerItem],
   },
 ];
 
@@ -33,7 +34,7 @@ export default function Header() {
                 <div
                   className={`${
                     item.HeaderItem.length > 1 ? 'lastChild' : ''
-                  } absolute flex w-full top-[20%] justify-center`}
+                  } absolute fristChild flex w-full top-[20%] justify-center`}
                 >
                   {item.HeaderItem.map((items) => (
                     <div>

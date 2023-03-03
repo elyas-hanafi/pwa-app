@@ -1,7 +1,7 @@
 import React from 'react';
 // import BottomImg from '../BottomImg/BottomImg';
 import TopImg from '../TopImg/TopImg';
-import bottomImg from '../../img/bottom.svg';
+import bottomImg from '../../img/RedRectangel.png';
 
 export default function Layout({ children, activeTopImg }) {
   return (

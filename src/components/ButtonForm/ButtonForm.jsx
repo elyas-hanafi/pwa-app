@@ -9,7 +9,7 @@ export default function ButtonForm({ text, mt, route, handelFunction }) {
     <>
       {/* <Link to={`/${route}`}> */}
       <button
-        className={` flex ${mt} text-white items-center justify-center w-full h-[38px] rounded bg-gradient-to-r to-[#6D47D3] from-[#A08DD4]`}
+        className={` flex ${mt} text-white items-center justify-center w-full h-[38px] rounded bg-gradient-to-t to-[#E30613] from-[#E05D64]`}
         onClick={handelFunction}
       >
         {text}

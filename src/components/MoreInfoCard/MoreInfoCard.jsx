@@ -29,7 +29,7 @@ export default function MoreInfoCard() {
             <Arrow />
           </div>
           <div className="flex items-center">
-            <div className="text-[#434343] px-2">تکمیل و ویرایش پروفایل</div>
+            <div className="text-[#434343] px-2"> اطلاعات هویتی </div>
             <div>
               <Edit
                 stroke="#179E66"
@@ -45,7 +45,7 @@ export default function MoreInfoCard() {
             <Arrow />
           </div>
           <div className="flex items-center">
-            <div className="text-[#434343] px-2">تکمیل و ویرایش پروفایل</div>
+            <div className="text-[#434343] px-2"> اطلاعات تماس </div>
             <div>
               <Edit
                 stroke="#179E66"

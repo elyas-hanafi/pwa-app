@@ -62,14 +62,14 @@ export default function Login() {
   return (
     <LoginAndRegisterLayout>
       <Header />
-      <Button mt={`mt-[22px]`} img={user} active={true} active2={false} />
+      {/* <Button mt={`mt-[22px]`} img={user} active={true} active2={false} /> */}
       <Form
-        des={` برای ورود به حساب کاربری خود کد ملی و رمز عبور را وارد نمایید`}
+        des={` برای ورود به حساب کاربری خود نام کاربر و رمز عبور را وارد نمایید`}
         titel={`ورود`}
         formImg={userP}
       >
         <FormInputeItem
-          label1={`شماره موبایل`}
+          label1={`نام کاربری`}
           handelFunction={setUser}
           typeOpt={'text'}
         />

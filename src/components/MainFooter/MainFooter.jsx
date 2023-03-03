@@ -26,7 +26,7 @@ export default function MainFooter() {
         }}
       >
         <div className="flex ml-8 pt-7">
-          <a href="/">
+          <a href="">
             <div className="flex pr-6 flex-col justify-center items-center">
               <div>
                 <Chat fill="white" stroke="#C6C6C6" />
@@ -34,7 +34,7 @@ export default function MainFooter() {
               <div className="text-[9px] text-slate-500">گفتگو</div>
             </div>
           </a>
-          <a href="/">
+          <a href="/profile">
             <div className="flex flex-col justify-center items-center">
               <div>
                 <Profile fill="white" stroke="#C6C6C6" />

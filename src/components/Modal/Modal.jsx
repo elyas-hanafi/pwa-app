@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Cart } from '../Cart/Cart';
 import shape from '../../img/Rectangle 37.png';
 import hotel from '../../img/Hotel.png';
 import Airplane from '../../img/Airplane.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import { Store } from '../../utils/Store';
 // last bg-gra bg-gradient-to-tr from-[#A08DD4] to-[#6D47D3]
 export default function Modal({ text, handelClick, setActive }) {
   const navigate = useNavigate();
+  const { dispatch, state } = useContext(Store);
 
   const [id, setId] = React.useState();
   const [sendId, setSendId] = React.useState();
@@ -35,7 +37,12 @@ export default function Modal({ text, handelClick, setActive }) {
             setActive(false);
             alert('اطلاعاتی برای کدملی وارد شده یافت نشد');
           } else {
+            dispatch({
+              type: 'CHECK_VALIDITION',
+              payload: sendId,
+            });
             navigate('/profile');
+            setActive(false);
           }
         })
         .catch((err) => console.log(err));
