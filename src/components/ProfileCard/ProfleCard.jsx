@@ -24,7 +24,7 @@ export default function ProfleCard() {
         <div className="content flex justify-evenly pt-7">
           {!state.userId ? (
             <div className="text-sm">
-              اول از قسمت اسعلام کد ملی خود را وارد کرده
+              اول از قسمت استعلام کد ملی خود را وارد کرده
             </div>
           ) : !user ? (
             <div className="relative w-14 h-14 bg-[#cf0000] rounded-full flex justify-center items-center">
