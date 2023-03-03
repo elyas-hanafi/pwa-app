@@ -25,7 +25,7 @@ export default function MainFooter() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="flex ml-8 pt-4">
+        <div className="flex ml-8 pt-7">
           <a href="/">
             <div className="flex pr-6 flex-col justify-center items-center">
               <div>
@@ -53,7 +53,7 @@ export default function MainFooter() {
           </button>
         </div>
 
-        <div className="flex  pt-4">
+        <div className="flex  pt-7">
           <a href="/">
             <div className="flex pr-5 flex-col justify-center items-center ">
               <div>
