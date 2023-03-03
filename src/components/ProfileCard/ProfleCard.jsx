@@ -1,7 +1,20 @@
+import axios from 'axios';
 import React from 'react';
 import { ReactComponent as Edit } from '../../img/Edit.svg';
 import userBoldP from '../../img/UserBoldP.png';
 export default function ProfleCard() {
+  const [user, setUser] = React.useState();
+  React.useEffect(() => {
+    axios
+      .get(
+        `https://emdad-yar.ir/webservice/webservice/national?national_code=0902387936`
+      )
+      .then((ress) => {
+        setUser(ress.data[0]);
+        console.log(ress.data[0]);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div dir="rtl" className="w-full">
       <div className="w-[300px] h-28 m-auto rounded-xl bg-white shadow-md mt-[-10px]">
@@ -17,8 +30,10 @@ export default function ProfleCard() {
             </div>
           </div>
           <div className="text-xs text-[#727272]">
-            <p className="">سیده نجمه علوی</p>
-            <p className="text-bold mt-1">09123456789</p>
+            <p className="">{user ? user.name : 'لطفا صبر نمایید'}</p>
+            <p className="text-bold mt-1">
+              {user ? user.mobile : 'لطفا صبر نمایید'}
+            </p>
           </div>
         </div>
       </div>
