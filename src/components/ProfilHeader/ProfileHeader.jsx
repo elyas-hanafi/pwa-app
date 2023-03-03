@@ -9,7 +9,7 @@ import { ReactComponent as Close } from '../../img/Close Square-1.svg';
 
 // last bg gradiant bg-gradient-to-t to-[#6D47D3] from-[#A08DD4]
 // last height h-[87px]
-export default function ProfileHeader({ children }) {
+export default function ProfileHeader({ children, titel }) {
   const [Active, setActive] = React.useState(false);
   const handelActive = () => {
     setActive(!Active);
@@ -24,7 +24,7 @@ export default function ProfileHeader({ children }) {
         <div>
           <img src={sideBar} alt="" />
         </div>
-        <div className="font-medium text-sm">سرویس ها</div>
+        <div className="font-medium text-sm">{titel}</div>
         <div className="flex justify-between">
           {/* <div className="ml-3">
             <img src={message} alt="" />

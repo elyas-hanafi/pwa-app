@@ -26,14 +26,13 @@ export default function MainFooter() {
         }}
       >
         <div className="flex ml-8 pt-7">
-          <a href="">
-            <div className="flex pr-6 flex-col justify-center items-center">
-              <div>
-                <Chat fill="white" stroke="#C6C6C6" />
-              </div>
-              <div className="text-[9px] text-slate-500">گفتگو</div>
+          <div className="flex pr-6 flex-col justify-center items-center">
+            <div>
+              <Chat fill="white" stroke="#C6C6C6" />
             </div>
-          </a>
+            <div className="text-[9px] text-slate-500">گفتگو</div>
+          </div>
+
           <a href="/profile">
             <div className="flex flex-col justify-center items-center">
               <div>
@@ -54,15 +53,14 @@ export default function MainFooter() {
         </div>
 
         <div className="flex  pt-7">
-          <a href="/">
-            <div className="flex pr-5 flex-col justify-center items-center ">
-              <div>
-                <Category stroke="#C6C6C6" />
-              </div>
-              <div className="text-[9px] text-slate-500">سرویس ها</div>
+          <div className="flex pr-5 flex-col justify-center items-center ">
+            <div>
+              <Category stroke="#C6C6C6" />
             </div>
-          </a>
-          <a href="/">
+            <div className="text-[9px] text-slate-500">سرویس ها</div>
+          </div>
+
+          <a href="/services">
             <div className="flex flex-col justify-center items-center">
               <div>
                 <Home fill="white" stroke="#C6C6C6" />

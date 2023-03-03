@@ -73,11 +73,13 @@ const ProfileRatingCard = ({ user }) => {
     <>
       {user[0].id == 50522 ? (
         <div className="h-9 w-36 flex justify-center items-center text-white bg-[#ee0c0c] mx-auto rounded-md mt-[-3%]">
-          <p className="text-xs">صبر کنید یا دوباره امتحان کنید</p>
+          <p className="text-xs">صبر کنید...</p>
         </div>
       ) : (
         <div className="h-9 w-36 flex justify-center items-center text-white bg-[#ee0c0c] mx-auto rounded-md mt-[-3%]">
-          <p className="text-xs">مجموع امتیازات :1500</p>
+          <p className="text-xs">
+            {user[0].organ_id == 1 ? 'سازمان جوانان' : 'سازمان داوطلبان'}
+          </p>
         </div>
       )}
     </>
