@@ -15,8 +15,8 @@ import { QrReader } from 'react-qr-reader';
 
 export default function Login() {
   const localPerson = {
-    userName: '09389318493',
-    passWord: 12345678,
+    userName: 'admin',
+    passWord: 'admin',
     active: false,
   };
   const [value, setValue] = React.useState();
@@ -24,7 +24,7 @@ export default function Login() {
   const [passWord, setPassWord] = React.useState();
   const navigate = useNavigate();
   const handelValiditions = () => {
-    if (passWord == localPerson.passWord) {
+    if (passWord == localPerson.passWord && value == localPerson.userName) {
       navigate('/services');
     } else {
       alert('PASS NOT CORRECt');
@@ -39,6 +39,7 @@ export default function Login() {
   const setUser = (e) => {
     setValue(e.target.value);
   };
+
   // useEffect(() => {
   //   axios
   //     .post(

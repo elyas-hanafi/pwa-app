@@ -8,8 +8,8 @@ export default function Profile() {
   return (
     <MainLayout>
       <PaymentService />
-      <MainBanner />
-      <AnotherServices />
+      {/* <MainBanner /> */}
+      {/* <AnotherServices /> */}
     </MainLayout>
   );
 }

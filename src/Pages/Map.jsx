@@ -8,65 +8,73 @@ import { TileLayer } from 'react-leaflet/TileLayer';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
-
 import markerMap from '../img/Map-Marker-PNG-File.png';
 import { useMap } from 'react-leaflet';
-export default function Map() {
-  const [croods, setCroods] = React.useState([]);
 
-  const position1 = [31.458, 51.0015];
-  const position2 = [31.008, 51.8415];
-  const position3 = [30.008, 45.8725];
-  function LocationMarker() {
-    const [position, setPosition] = useState(null);
-    const map = useMapEvents({
-      click() {
-        map.locate();
-      },
-      locationfound(e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-      },
-    });
-    return position === null ? null : (
-      <>
-        <Marker position={position} icon={defaulIcon}>
-          <Popup>You are here</Popup>
-        </Marker>
-        <Marker position={[35.698, 51.4115]} icon={defaulIcon}>
-          <Popup>You are here</Popup>
-        </Marker>
-        <Marker position={position2} icon={defaulIcon}>
-          <Popup>You are here</Popup>
-        </Marker>
-        <Marker position={[25.1325, 51.2345]} icon={defaulIcon}>
-          <Popup>You are here</Popup>
-        </Marker>
-      </>
+export default function Map() {
+  const mapPoint = [
+    { name: 'digiKala', position: [31.458, 51.0015] },
+    { name: 'IraCode', position: [31.008, 51.8415] },
+    { name: 'Dubai', position: [30.008, 45.8725] },
+  ];
+  const [croods, setCroods] = React.useState([35.698, 51.4115]);
+
+  // function LocationMarker() {
+  //   const [position, setPosition] = useState(null);
+  //   // const x = true;
+  //   const map = useMapEvents({
+  //     click() {
+  //       map.locate();
+  //     },
+  //     locationfound(e) {
+  //       setPosition(e.latlng);
+  //       map.flyTo(e.latlng, map.getZoom());
+  //     },
+  //   });
+  //   return position === null ? null : (
+  //     <>
+  //       <Marker position={position} icon={defaulIcon}>
+  //         <Popup>You are here</Popup>
+  //       </Marker>
+  //     </>
+  //   );
+  // }
+
+  const handelLocationsUser = () => {
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        setCroods([latitude, longitude]);
+        console.log(croods);
+      }
     );
-  }
+  };
+
+  const handelRouteDestenitions = (e) => {
+    console.log('hey i am ok');
+  };
 
   return (
-    <MapContainer center={[35.698, 51.4115]} zoom={13} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {/* <LocationMarker /> */}
-      {/* <LeafletGeocode /> */}
-      {/* <LeafletMachine /> */}
-      <Marker position={position1} icon={defaulIcon}>
-        <Popup>You are here</Popup>
-      </Marker>
-      <Marker position={position2} icon={defaulIcon}>
-        <Popup>You are here</Popup>
-      </Marker>
-      <Marker position={position3} icon={defaulIcon}>
-        <Popup>You are here</Popup>
-      </Marker>
-      <LeafletMachine />
-      {/* <LocationMarker /> */}
-    </MapContainer>
+    <>
+      <MapContainer center={croods} zoom={13} scrollWheelZoom={true}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {mapPoint.map((e) => {
+          return (
+            <Marker
+              position={e.position}
+              className=""
+              icon={defaulIcon}
+            ></Marker>
+          );
+        })}
+        {/* <LocationMarker /> */}
+        <LeafletMachine />
+      </MapContainer>
+      <button onClick={handelLocationsUser}>I AM HERE</button>
+    </>
   );
 }
 
@@ -92,20 +100,9 @@ const LeafletGeocode = () => {
   }, []);
   return null;
 };
-const array = [36.8065, 10.1815];
 
 const LeafletMachine = () => {
-  // const [croods, setCroods] = useState([]);
-  // useLayoutEffect(() => {
-  //   navigator.geolocation.getCurrentPosition(
-  //     ({ coords: { latitude, longitude } }) => {
-  //       setCroods([...croods, latitude, longitude]);
-  //     }
-  //   );
-  //   console.log('Hello thats not my fault');
-  // }, []);
   const map = useMap();
-  // console.log(croods[0], croods[1]);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {

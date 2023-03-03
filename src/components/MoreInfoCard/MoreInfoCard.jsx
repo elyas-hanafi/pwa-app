@@ -40,6 +40,38 @@ export default function MoreInfoCard() {
             </div>
           </div>
         </div>
+        <div className="contetnt text-white mx-4 flex h-14 items-center justify-between">
+          <div>
+            <Arrow />
+          </div>
+          <div className="flex items-center">
+            <div className="text-[#434343] px-2">تکمیل و ویرایش پروفایل</div>
+            <div>
+              <Edit
+                stroke="#179E66"
+                fill="#179E66"
+                width={'12'}
+                height={'12'}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="contetnt text-white mx-4 flex h-14 items-center justify-between">
+          <div>
+            <Arrow />
+          </div>
+          <div className="flex items-center">
+            <div className="text-[#434343] px-2">تکمیل و ویرایش پروفایل</div>
+            <div>
+              <Edit
+                stroke="#179E66"
+                fill="#179E66"
+                width={'12'}
+                height={'12'}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

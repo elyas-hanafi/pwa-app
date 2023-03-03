@@ -10,11 +10,11 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/OneTimeCode" element={<OneTimeCode />} />
+        {/* <Route path="/register" element={<Register />} /> */}
+        {/* <Route path="/OneTimeCode" element={<OneTimeCode />} /> */}
         <Route path="/services" element={<Services />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/map" element={<Map />} />
+        {/* <Route path="/map" element={<Map />} /> */}
       </Routes>
     </>
   );

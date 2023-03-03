@@ -6,8 +6,15 @@ import { ReactComponent as Profile } from '../../img/Profile.svg';
 import { ReactComponent as Home } from '../../img/Home.svg';
 import { ReactComponent as Category } from '../../img/Category.svg';
 import Union from '../../img/Union.png';
+import Modal from '../Modal/Modal';
 
 export default function MainFooter() {
+  const [ModalTitel, setModalTitel] = React.useState();
+  const [Active, setActive] = React.useState(false);
+  const handelConsole = (name) => {
+    // setModalTitel(name);
+    setActive(!Active);
+  };
   return (
     <>
       <div
@@ -38,10 +45,10 @@ export default function MainFooter() {
         </div>
 
         <div className="w-[68px] ml-7 text-xs text-white h-[68px]  rounded-full bg-gradient-to-t from-[#FFFFFF] to-[#D0CAE2] flex items-center justify-center">
-          <button>
-            <div className="w-[56px] flex flex-col items-center justify-center h-[56px] rounded-full bg-[#6D47D3]">
+          <button onClick={handelConsole}>
+            <div className="w-[56px] flex flex-col items-center justify-center h-[56px] rounded-full bg-[#ff0202]">
               <img src={qrCode} alt="" />
-              <p>اسکن</p>
+              <p> استعلام</p>
             </div>
           </button>
         </div>
@@ -65,6 +72,7 @@ export default function MainFooter() {
           </a>
         </div>
       </div>
+      {Active && <Modal setActive={setActive} handelClick={handelConsole} />}
     </>
   );
 }

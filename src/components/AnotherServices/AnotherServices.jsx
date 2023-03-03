@@ -1,6 +1,7 @@
 import React from 'react';
 import { Cart } from '../Cart/Cart';
 import reserv from '../../img/XMLID_837_.png';
+import banner from '../../img/banner.png';
 import shape from '../../img/Rectangle 37.png';
 import bank from '../../img/XMLID_730_.png';
 import SwiperSlider from '../Swiper/Swiper';
@@ -26,9 +27,9 @@ export default function AnotherServices() {
     <>
       <div
         dir="rtl"
-        className="h-[185px] bg-gradient-to-tr from-[#A08DD4] to-[#6D47D3]"
+        className="h-[225px]  flex items-center justify-center bg-gradient-to-tr to-[#E30613] from-[#E05D64]"
       >
-        <div>
+        {/* <div>
           <p className="text-xs text-white pt-5 pr-9">دیگر سرویس ها</p>
           <div className="cart mt-5">
             <SwiperSlider preview={4} spaceBetween={-50}>
@@ -45,9 +46,12 @@ export default function AnotherServices() {
               ))}
             </SwiperSlider>
           </div>
+        </div> */}
+        <div>
+          <img src={banner} alt="" />
         </div>
       </div>
-      {Active && <Modal text={ModalTitel} handelClick={handelConsole} />}
+      {/* {Active && <Modal text={ModalTitel} handelClick={handelConsole} />} */}
     </>
   );
 }

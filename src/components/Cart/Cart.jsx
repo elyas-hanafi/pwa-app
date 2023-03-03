@@ -24,7 +24,7 @@ export const Cart = ({
         >
           <img src={shapeCart} alt="" />
         </div>
-        <p className={`text-[9px]  ${textColor}`}>{text}</p>
+        <p className={`text-[9px] w-fit  ${textColor}`}>{text}</p>
       </div>
     </>
   );

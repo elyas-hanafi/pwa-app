@@ -9,7 +9,7 @@ import { ReactComponent as Close } from '../../img/Close Square-1.svg';
 
 // last bg gradiant bg-gradient-to-t to-[#6D47D3] from-[#A08DD4]
 // last height h-[87px]
-export default function MainHeader({ children }) {
+export default function ProfileHeader({ children }) {
   const [Active, setActive] = React.useState(false);
   const handelActive = () => {
     setActive(!Active);
@@ -17,7 +17,7 @@ export default function MainHeader({ children }) {
   return (
     <div
       dir="rtl"
-      className="w-[360px] h-[288px] rounded-b-2xl bg-gradient-to-t to-[#E30613] from-[#E05D64]"
+      className="w-[360px] h-[80px]  bg-gradient-to-t to-[#E30613] from-[#E05D64]"
       onClick={handelActive}
     >
       <div className="flex justify-around items-center pt-2 text-white">
@@ -37,9 +37,9 @@ export default function MainHeader({ children }) {
           </div>
         </div>
       </div>
-      <div className="mx-auto w-5/6 mt-5">
+      {/* <div className="mx-auto w-5/6 mt-5">
         <img src={banner} alt="" />
-      </div>
+      </div> */}
       {children}
       {Active && <SideBar onHandelClick={handelActive} />}
     </div>
