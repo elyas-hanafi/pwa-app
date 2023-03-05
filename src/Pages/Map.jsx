@@ -19,26 +19,26 @@ export default function Map() {
   ];
   const [croods, setCroods] = React.useState([35.698, 51.4115]);
 
-  // function LocationMarker() {
-  //   const [position, setPosition] = useState(null);
-  //   // const x = true;
-  //   const map = useMapEvents({
-  //     click() {
-  //       map.locate();
-  //     },
-  //     locationfound(e) {
-  //       setPosition(e.latlng);
-  //       map.flyTo(e.latlng, map.getZoom());
-  //     },
-  //   });
-  //   return position === null ? null : (
-  //     <>
-  //       <Marker position={position} icon={defaulIcon}>
-  //         <Popup>You are here</Popup>
-  //       </Marker>
-  //     </>
-  //   );
-  // }
+  function LocationMarker() {
+    const [position, setPosition] = useState(null);
+    // const x = true;
+    const map = useMapEvents({
+      click() {
+        map.locate();
+      },
+      locationfound(e) {
+        setPosition(e.latlng);
+        map.flyTo(e.latlng, map.getZoom());
+      },
+    });
+    return position === null ? null : (
+      <>
+        <Marker position={position} icon={defaulIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+      </>
+    );
+  }
 
   const handelLocationsUser = () => {
     navigator.geolocation.getCurrentPosition(
@@ -60,7 +60,6 @@ export default function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
         {mapPoint.map((e) => {
           return (
             <Marker
@@ -70,10 +69,10 @@ export default function Map() {
             ></Marker>
           );
         })}
-        {/* <LocationMarker /> */}
+        ]
         <LeafletMachine />
       </MapContainer>
-      <button onClick={handelLocationsUser}>I AM HERE</button>
+      <button onClick={LocationMarker}>I AM HERE</button>
     </>
   );
 }
